@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveEase - Car Rental & Travel Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #1a252f;
+            color: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Booking Form */
+        .booking-container {
+            max-width: 1000px;
+            margin: -50px auto 3rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .form-group input, .form-group select {
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-submit {
+            grid-column: 1 / -1;
+            background-color: #f39c12;
+            color: #fff;
+            border: none;
+            padding: 0.8rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #d35400;
+        }
+
+        /* Fleet Section */
+        .fleet {
+            max-width: 1100px;
+            margin: 0 auto 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .fleet h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .car-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .car-info {
+            padding: 1rem;
+        }
+
+        .car-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .car-price {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo">DriveEase Agency</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#fleet">Our Fleet</a>
+            <a href="#booking">Book Now</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Explore the Open Road with Ease</h1>
+        <p>Reliable car rentals and tailored travel packages for your next journey.</p>
+    </section>
+
+    <!-- Search / Booking Form -->
+    <div class="booking-container" id="booking">
+        <form class="booking-form" onsubmit="alert('Search Submitted!'); return false;">
+            <div class="form-group">
+                <label for="pickup">Pick-up Location</label>
+                <input type="text" id="pickup" placeholder="City or Airport" required>
+            </div>
+            <div class="form-group">
+                <label for="pickup-date">Pick-up Date</label>
+                <input type="date" id="pickup-date" required>
+            </div>
+            <div class="form-group">
+                <label for="dropoff-date">Return Date</label>
+                <input type="date" id="dropoff-date" required>
+            </div>
+            <div class="form-group">
+                <label for="car-type">Car Type</label>
+                <select id="car-type">
+                    <option value="any">All Types</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="suv">SUV</option>
+                    <option value="luxury">Luxury</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">Find Available Cars</button>
+        </form>
+    </div>
+
+    <!-- Fleet / Vehicles Section -->
+    <section class="fleet" id="fleet">
+        <h2>Featured Vehicles</h2>
+        <div class="car-grid">
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80" alt="Executive Sedan">
+                <div class="car-info">
+                    <h3>Executive Sedan</h3>
+                    <p class="car-price">$45 / day</p>
+                    <p>5 Seats • Automatic • Unlimited Mileage</p>
+                </div>
+            </div>
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=80" alt="Family SUV">
+                <div class="car-info">
+                    <h3>Family SUV</h3>
+                    <p class="car-price">$70 / day</p>
+                    <p>7 Seats • All-Wheel Drive • GPS Included</p>
+                </div>
+            </div>
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Sports Luxury">
+                <div class="car-info">
+                    <h3>Luxury Convertible</h3>
+                    <p class="car-price">$120 / day</p>
+                    <p>2 Seats • Premium Sound • Full Insurance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <p>&copy; 2026 DriveEase Travel Agency. All rights reserved.</p>
+        <p>Email: info@driveease.com | Phone: +1 (555) 019-2834</p>
+    </footer>
+
+</body>
+</html>
